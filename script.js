@@ -32,3 +32,25 @@ document.addEventListener("keydown", function (e) {
     closeModal();
   }
 });
+
+//creating DOM element -- creating a cookie type messsage
+const header = document.querySelector("header");
+const message = document.createElement("div");
+message.classList.add("cookie--message");
+//adding contents to div
+message.innerHTML =
+  'We use cookies for improved functionality and analytics<button class="btn btn--close--cookie">Got it!<button/>';
+
+//inserting the element in the DOM Tree
+//header.append(message);
+header.prepend(message);
+//header.before(message);
+//header.after(message);
+
+//deleting a DOM Element
+document
+  .querySelector(".btn--close--cookie")
+  .addEventListener("click", function () {
+    message.remove();
+    //message.parentElement.removeChild(message);
+  });
