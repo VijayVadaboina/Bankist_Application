@@ -39,7 +39,7 @@ const message = document.createElement("div");
 message.classList.add("cookie--message");
 //adding contents to div
 message.innerHTML =
-  'We use cookies for improved functionality and analytics<button class="btn btn--close--cookie">Got it!<button/>';
+  '<b>We use cookies for improved functionality and analytics </b>         <button class="btn btn--close--cookie">Got it!<button/>';
 
 //inserting the element in the DOM Tree
 //header.append(message);
@@ -54,3 +54,29 @@ document
     message.remove();
     //message.parentElement.removeChild(message);
   });
+
+//styling cookie
+message.style.backgroundColor = "white";
+message.style.width = "110%";
+message.style.display = "flex";
+message.style.justifyContent = "space-between";
+message.style.alignItems = "centre";
+message.style.paddingInlineStart = "100px";
+message.style.paddingTop = "20px";
+
+//implementing smooth scrolling to section1
+const btnScrollTo = document.querySelector(".btn--scroll-to");
+const section1 = document.querySelector("#section--1");
+
+btnScrollTo.addEventListener("click", function (e) {
+  // implementing old school way
+  // const s1Coord = section1.getBoundingClientRect();
+  // window.scrollTo({
+  //   left: s1Coord.left + window.scrollX,
+  //   top: s1Coord.top + window.scrollY,
+  //   behaviour: "smooth",
+  // });
+
+  // implementing in modern view
+  section1.scrollIntoView({ behavior: "smooth" });
+});
