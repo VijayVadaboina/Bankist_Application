@@ -73,6 +73,30 @@ document.querySelector(".nav__links").addEventListener("click", function (e) {
   }
 });
 /*****************************************************************************************/
+// creating tabbed components in Operations section
+//
+const tabContainer = document.querySelector(".operations__tab-container");
+const tabs = document.querySelectorAll(".operations__tab");
+const tabContents = document.querySelectorAll(".operations__content");
+
+tabContainer.addEventListener("click", function (e) {
+  //selecting the closest parent to prevent selecting other than button element
+  const clicked = e.target.closest(".operations__tab");
+  // guard clause to prevent errors when we click on content area
+  if (!clicked) return;
+  //Removing active classes from tabs and tabcontents
+  tabs.forEach((t) => t.classList.remove("operations__tab--active"));
+  tabContents.forEach((c) => c.classList.remove("operations__content--active"));
+
+  //Activating the tab  when clicked on respective button
+  clicked.classList.add("operations__tab--active");
+  //Activating the tabcontents when clicked on respective button
+
+  document
+    .querySelector(`.operations__content--${clicked.dataset.tab}`)
+    .classList.add("operations__content--active");
+});
+/*****************************************************************************************/
 
 //creating DOM element -- creating a cookie type messsage
 const header = document.querySelector("header");
