@@ -117,6 +117,16 @@ nav.addEventListener("mouseover", handleHover.bind(0.5));
 nav.addEventListener("mouseout", handleHover.bind(1));
 
 /*****************************************************************************************/
+// adding a sticky navigation to the page
+const initialcoords = section1.getBoundingClientRect();
+window.addEventListener("scroll", function () {
+  if (this.window.scrollY > initialcoords.top) {
+    nav.classList.add("sticky");
+  } else {
+    nav.classList.remove("sticky");
+  }
+});
+/*****************************************************************************************/
 
 //creating DOM element -- creating a cookie type messsage
 const header = document.querySelector("header");
